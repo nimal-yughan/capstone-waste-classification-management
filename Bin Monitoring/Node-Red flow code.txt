@@ -1,0 +1,451 @@
+[
+    {
+        "id": "b9ce84459068e69c",
+        "type": "tab",
+        "label": "Project Flow",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "200e0be39c033d10",
+        "type": "http request",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "method": "POST",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "https://demo.thingsboard.io/api/v1/nZE5HDBjo2Y2a0NWWfKd/telemetry",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "authType": "",
+        "senderr": false,
+        "x": 890,
+        "y": 220,
+        "wires": [
+            [
+                "52bfe2721898f75d"
+            ]
+        ]
+    },
+    {
+        "id": "ae6597daed46d328",
+        "type": "function",
+        "z": "b9ce84459068e69c",
+        "name": "US1 Function",
+        "func": "if(msg.payload<=30 && msg.payload>=0)\n{\n    msg.payload=Math.round((30-msg.payload)*3.33);\n}\nelse\n{\n    msg.payload=0;\n}\nmsg.payload={\"US1\":msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 160,
+        "wires": [
+            [
+                "5944f14e56708395"
+            ]
+        ]
+    },
+    {
+        "id": "b6a546c27981dc87",
+        "type": "inject",
+        "z": "b9ce84459068e69c",
+        "d": true,
+        "name": "US 1",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "80",
+        "payloadType": "num",
+        "x": 110,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "28b2648b63d9ce02",
+        "type": "inject",
+        "z": "b9ce84459068e69c",
+        "d": true,
+        "name": "US 2",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "40",
+        "payloadType": "num",
+        "x": 90,
+        "y": 220,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "dd7b3aa274f26e47",
+        "type": "inject",
+        "z": "b9ce84459068e69c",
+        "d": true,
+        "name": "US 3",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "20",
+        "payloadType": "num",
+        "x": 90,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "2f9caadb630a7993",
+        "type": "function",
+        "z": "b9ce84459068e69c",
+        "name": "US2 Function",
+        "func": "if(msg.payload<=30 && msg.payload>=0)\n{\n    msg.payload=Math.round((30-msg.payload)*3.33);\n}\nelse\n{\n    msg.payload=0;\n}\nmsg.payload={\"US2\":msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 220,
+        "wires": [
+            [
+                "e5dead2d4d4be52a"
+            ]
+        ]
+    },
+    {
+        "id": "5fa42a22843eddf8",
+        "type": "function",
+        "z": "b9ce84459068e69c",
+        "name": "US3 Function",
+        "func": "if(msg.payload<=30 && msg.payload>=0)\n{\n    msg.payload=Math.round((30-msg.payload)*3.33);\n}\nelse\n{\n    msg.payload=0;\n}\nmsg.payload={\"US3\":msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 500,
+        "y": 280,
+        "wires": [
+            [
+                "b13a558e42f6f561"
+            ]
+        ]
+    },
+    {
+        "id": "5944f14e56708395",
+        "type": "json",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 160,
+        "wires": [
+            [
+                "200e0be39c033d10"
+            ]
+        ]
+    },
+    {
+        "id": "e5dead2d4d4be52a",
+        "type": "json",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 690,
+        "y": 220,
+        "wires": [
+            [
+                "200e0be39c033d10"
+            ]
+        ]
+    },
+    {
+        "id": "b13a558e42f6f561",
+        "type": "json",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 700,
+        "y": 280,
+        "wires": [
+            [
+                "200e0be39c033d10"
+            ]
+        ]
+    },
+    {
+        "id": "52bfe2721898f75d",
+        "type": "debug",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 1080,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "1516008dcd3f77b7",
+        "type": "inject",
+        "z": "b9ce84459068e69c",
+        "d": true,
+        "name": "Flame Sensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"F\":0}",
+        "payloadType": "json",
+        "x": 140,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "0a85ec61d8202cb4",
+        "type": "inject",
+        "z": "b9ce84459068e69c",
+        "d": true,
+        "name": "Gas Sensor",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": true,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"G\":1}",
+        "payloadType": "json",
+        "x": 150,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "59a41738de0f1713",
+        "type": "rpi-srf",
+        "z": "b9ce84459068e69c",
+        "name": "US 1",
+        "topic": "SRF",
+        "pulse": "15",
+        "pins": "13,15",
+        "precision": "0",
+        "x": 310,
+        "y": 160,
+        "wires": [
+            [
+                "ae6597daed46d328"
+            ]
+        ]
+    },
+    {
+        "id": "1193f4fd7b8be65f",
+        "type": "rpi-srf",
+        "z": "b9ce84459068e69c",
+        "name": "US 2",
+        "topic": "SRF",
+        "pulse": "15",
+        "pins": "16,18",
+        "precision": "0",
+        "x": 310,
+        "y": 220,
+        "wires": [
+            [
+                "2f9caadb630a7993"
+            ]
+        ]
+    },
+    {
+        "id": "97526062a836b79f",
+        "type": "rpi-srf",
+        "z": "b9ce84459068e69c",
+        "name": "US 3",
+        "topic": "SRF",
+        "pulse": "15",
+        "pins": "29,31",
+        "precision": "0",
+        "x": 310,
+        "y": 280,
+        "wires": [
+            [
+                "5fa42a22843eddf8"
+            ]
+        ]
+    },
+    {
+        "id": "21587a7e3d3ea965",
+        "type": "rpi-gpio in",
+        "z": "b9ce84459068e69c",
+        "name": "Flame Sensor",
+        "pin": "25",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 350,
+        "y": 400,
+        "wires": [
+            [
+                "f13b182f61b5de6d"
+            ]
+        ]
+    },
+    {
+        "id": "d84974f3f9e7c696",
+        "type": "rpi-gpio in",
+        "z": "b9ce84459068e69c",
+        "name": "Gas Sensor",
+        "pin": "26",
+        "intype": "tri",
+        "debounce": "25",
+        "read": false,
+        "bcm": true,
+        "x": 350,
+        "y": 460,
+        "wires": [
+            [
+                "3b4e7a3ce7a43a05"
+            ]
+        ]
+    },
+    {
+        "id": "f13b182f61b5de6d",
+        "type": "function",
+        "z": "b9ce84459068e69c",
+        "name": "Flame Function",
+        "func": "msg.payload={\"F\":msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 560,
+        "y": 400,
+        "wires": [
+            [
+                "d73f3e309e778bf1"
+            ]
+        ]
+    },
+    {
+        "id": "3b4e7a3ce7a43a05",
+        "type": "function",
+        "z": "b9ce84459068e69c",
+        "name": "Gas Function",
+        "func": "msg.payload={\"G\":msg.payload};\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 550,
+        "y": 460,
+        "wires": [
+            [
+                "f17bc5221cb9a147"
+            ]
+        ]
+    },
+    {
+        "id": "d73f3e309e778bf1",
+        "type": "json",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 400,
+        "wires": [
+            [
+                "200e0be39c033d10"
+            ]
+        ]
+    },
+    {
+        "id": "f17bc5221cb9a147",
+        "type": "json",
+        "z": "b9ce84459068e69c",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 750,
+        "y": 460,
+        "wires": [
+            [
+                "200e0be39c033d10"
+            ]
+        ]
+    }
+]
