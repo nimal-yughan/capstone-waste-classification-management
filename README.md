@@ -13,6 +13,7 @@ This folders consists of the following information:
 * Training Metrics Plot of Best model of each arcitecture
 * Testing Codes
 * Model Files Link: https://drive.google.com/drive/folders/1VTIHe-62fVEq5xzbSbObVxtVbxdN6Y3P?usp=sharing
+* VGG16 Model Architecture: https://drive.google.com/file/d/1j0dBIgW48aBk-SXXC4dyDlLm2I4cM-Ig/view?usp=sharing
 
 **2. Bin Monitoring:**
 * This folder consists of Node-red flow's JSON file.
